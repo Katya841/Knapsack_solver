@@ -4,8 +4,7 @@ from cut_generator import OddConstraintCutGenerator
 import sys
 
 
-def read_test(test_id):
-    file_name = f"tests/test_{test_id}.txt"
+def read_test_filename(file_name):
     a = []
     c = []
     N, b = 0, 0
@@ -22,26 +21,28 @@ def read_test(test_id):
             cnt += 1
     return N, b, a, c 
 
-def save_test(test_id, ans, best_cost, total_cost, total_weight, N):
+def read_test(test_id):
+    file_name = f"tests/test_{test_id}.txt"
+    return read_test_filename(file_name)
 
-    filename_out = f"output/out_{test_id}.txt"
 
-    with open(filename_out,"w") as f:
+def save_test_filename(filename_out, ans, best_cost, total_cost, total_weight, N):
+     with open(filename_out,"w") as f:
         f.write(f"{best_cost} {sum(ans)} {total_cost} {total_weight}\n")
         for i in range(N):
             f.write(f"{ans[i]} ")
-    
+
+def save_test(test_id, ans, best_cost, total_cost, total_weight, N):
+    filename_out = f"output/out_{test_id}.txt"
+    save_test_filename(filename_out, ans, best_cost, total_cost, total_weight, N)
 
 
+   
 def solve(N, b, a, c):
   
-    print(N, ' ', b)
-   
-    #for i in range(N):
-    #   print(a[i], c[i])
-    #"""
     m = Model("Knapsack")
-    m.verbose = 1
+    # Disable logs 
+    m.verbose = 0 
     
     m.max_seconds = 10
     x = [m.add_var(var_type=BINARY) for i in range(N)]
@@ -49,9 +50,6 @@ def solve(N, b, a, c):
     m.objective = maximize(xsum(c[i] * x[i] for i in range(N)))
 
     m += xsum(a[i] * x[i] for i in range(N)) <= b
-    #m += y >= 0
-    #m += xsum(x[i] for i in range(N) ) == 2 * y + 1
-    
     m.lazy_constrs_generator = OddConstraintCutGenerator()
     m.optimize()
 
@@ -64,18 +62,7 @@ def solve(N, b, a, c):
             ans[idx] = 1
             total_cost += c[idx]
             total_weight += a[idx]
-    #print('WORK:',m.lazy_constrs_generator.calls)
     
     return ans, m.objective_value, total_cost, total_weight
 
 
-"""
-test_id = int(input())
-print(f"Номер теста: {test_id}")
-
-N, b, a, c = read_test(test_id)
-
-ans, best_cost, total_cost, total_weight = solve(N, b, a, c)
-
-save_test(test_id, ans, best_cost, total_cost, total_weight, N)
-"""
