@@ -40,7 +40,12 @@
        filename_in
        ```bash
         N b
-        a[i] c[i]
+        a[1] c[1]
+        a[2] c[2]
+        
+        ...
+
+        a[N] c[N]
         ```
        filename_out
        ```bash
