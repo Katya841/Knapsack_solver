@@ -42,7 +42,7 @@
         N b
         a[1] c[1]
         a[2] c[2]
-        
+
         ...
 
         a[N] c[N]
@@ -50,7 +50,7 @@
        filename_out
        ```bash
         best_cost cnt total_cost total_weight
-        x[i]
+        x[1] x[2] ... x[N]
        ```
        Execute run.py and enter the file name of your input data and the file name for saving the result:
        ![alt text](<images/Screenshot from 2024-10-11 23-56-51.png>)
