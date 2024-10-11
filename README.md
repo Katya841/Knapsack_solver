@@ -47,6 +47,6 @@
         best_cost cnt total_cost total_weight
         x[i]
        ```
-    Execute run.py and enter the file name of your input data and the file name for saving the result:
-    ![alt text](<images/Screenshot from 2024-10-11 23-56-51.png>)
+       Execute run.py and enter the file name of your input data and the file name for saving the result:
+       ![alt text](<images/Screenshot from 2024-10-11 23-56-51.png>)
     
