@@ -32,7 +32,7 @@
     This command runs the solver on all tests provided in the tests folder and compares the results with the answers from the answers folder
 
 2. **Test execution**
-  ![alt text](<Screenshot from 2024-10-11 22-59-44.png>)
+  ![alt text](<images/Screenshot from 2024-10-11 22-59-44.png>)
 3. **Running your own test(run.py)**
 
     1. File structure filename_in and filename_out
@@ -48,5 +48,5 @@
         x[i]
        ```
     Execute run.py and enter the file name of your input data and the file name for saving the result:
-    ![alt text](<Screenshot from 2024-10-11 23-56-51.png>)
+    ![alt text](<images/Screenshot from 2024-10-11 23-56-51.png>)
     
