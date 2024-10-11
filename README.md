@@ -1,6 +1,6 @@
+## Description
 
-
-
+- **knapsack_dp**: DP solution for instances with a small total weight
 - **tests/**:  Folder with test input data
 - **output/**: Output folder
 - **answers/**:  Answers folder 
@@ -8,6 +8,7 @@
 - **cut_generator.py**: Redefined separation procedure source code
 - **gen_test.py**: Test generation
 - **test_solver.py**: Testing script
+
 
 ## Installation
 1. **Clone the repository**
